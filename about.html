@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      About Us | Hillview Group, Inc. - Website Design for Small Businesses
+    </title>
+    <meta
+      name="description"
+      content="Learn about Hillview Group's mission to help local trade businesses compete in a digital-first world with affordable, professional websites."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              royal: "#5B2EFF",
+              indigo: "#3D1E8C",
+              navy: "#1F1B3A",
+              accent: "#8B5CF6",
+              dark: "#0F0F14",
+              light: "#E5E7EB",
+            },
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="bg-dark text-white font-sans overflow-x-hidden">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-dark/90 backdrop-blur-md border-b border-white/10"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-[#5B2EFF] to-[#3D1E8C] rounded-xl flex items-center justify-center"
+            >
+              <i data-lucide="mountain" class="w-6 h-6 text-white"></i>
+            </div>
+            <a href="index.html" class="text-2xl font-bold text-white">
+              <span class="text-royal">Hillview</span> Group
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="index.html"
+                class="text-light hover:text-royal transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                >Home</a
+              >
+              <a
+                href="about.html"
+                class="text-white px-3 py-2 rounded-md text-sm font-medium"
+                >About</a
+              >
+              <a
+                href="services.html"
+                class="text-light hover:text-royal transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                >Services</a
+              >
+              <a
+                href="contact.html"
+                class="bg-royal hover:bg-accent text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 btn-glow"
+                >Book Free Consultation</a
+              >
+            </div>
+          </div>
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-btn"
+              class="text-white hover:text-royal p-2"
+            >
+              <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-dark border-t border-white/10"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="index.html"
+            class="text-light block px-3 py-2 rounded-md text-base font-medium"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-white block px-3 py-2 rounded-md text-base font-medium"
+            >About</a
+          >
+          <a
+            href="services.html"
+            class="text-light block px-3 py-2 rounded-md text-base font-medium"
+            >Services</a
+          >
+          <a
+            href="contact.html"
+            class="bg-royal text-white block px-3 py-2 rounded-md text-base font-medium text-center mt-4"
+            >Book Free Consultation</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section
+      class="gradient-hero min-h-[60vh] flex items-center pt-20 relative overflow-hidden"
+    >
+      <div
+        class="geo-shape top-32 right-20 w-48 h-48 border border-white/20 rotate-12 float-animation"
+      ></div>
+      <div
+        class="geo-shape bottom-20 left-1/4 w-32 h-32 border border-white/15 rotate-45 float-animation"
+        style="animation-delay: 1s"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl slide-up">
+          <span
+            class="text-accent font-semibold text-sm uppercase tracking-wider"
+            >Our Story</span
+          >
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mt-4 mb-6"
+          >
+            About
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-royal"
+              >Hillview Group</span
+            >
+          </h1>
+          <p class="text-xl text-light leading-relaxed">
+            Closing the digital gap for local trades with affordable,
+            professional web solutions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="py-20 md:py-32 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="slide-up">
+            <img
+              src="http://static.photos/workspace/640x360/42"
+              alt="Team collaboration"
+              class="rounded-3xl shadow-2xl w-full h-96 object-cover"
+            />
+          </div>
+          <div class="slide-up" style="animation-delay: 0.2s">
+            <span
+              class="text-accent font-semibold text-sm uppercase tracking-wider"
+              >Our Mission</span
+            >
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
+              Helping Underserved Trades Compete in a
+              <span class="text-accent">Digital-First World</span>
+            </h2>
+            <p class="text-light text-lg leading-relaxed mb-6">
+              We started Hillview Group because we saw a problem: incredible
+              local tradespeople—cleaners, landscapers, HVAC technicians,
+              handymen, and more—were losing business simply because they lacked
+              a professional online presence.
+            </p>
+            <p class="text-light text-lg leading-relaxed mb-6">
+              Many are amazing at their craft. They show up on time, do quality
+              work, and build great relationships. But when potential customers
+              search online, they find competitors with polished websites while
+              these hardworking professionals remain invisible.
+            </p>
+            <p class="text-light text-lg leading-relaxed">
+              Our mission is simple: close that gap affordably. We believe every
+              legitimate business deserves to look established and credible
+              online, regardless of their technical skills or budget size.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-20 md:py-32 bg-gradient-to-b from-navy to-dark">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 slide-up">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
+          >
+            Built on <span class="text-accent">Experience</span> &
+            <span class="text-accent">Empathy</span>
+          </h2>
+        </div>
+        <div class="space-y-8 slide-up" style="animation-delay: 0.2s">
+          <div class="bg-navy/50 p-8 rounded-2xl border border-white/10">
+            <div class="flex items-start gap-4">
+              <div
+                class="bg-royal/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+              >
+                <i data-lucide="target" class="w-6 h-6 text-accent"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">
+                  Years of Digital Experience
+                </h3>
+                <p class="text-light">
+                  Our team brings years of experience in web design, digital
+                  marketing, and small business growth. We've worked with
+                  businesses of all sizes and understand what it takes to
+                  succeed online.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-navy/50 p-8 rounded-2xl border border-white/10">
+            <div class="flex items-start gap-4">
+              <div
+                class="bg-royal/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+              >
+                <i data-lucide="heart" class="w-6 h-6 text-accent"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">
+                  Focus on Small/Local Businesses
+                </h3>
+                <p class="text-light">
+                  We're not trying to be everything to everyone. We specialize
+                  in helping local service businesses—the backbone of our
+                  economy—establish and grow their digital presence affordably.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-navy/50 p-8 rounded-2xl border border-white/10">
+            <div class="flex items-start gap-4">
+              <div
+                class="bg-royal/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+              >
+                <i data-lucide="sparkles" class="w-6 h-6 text-accent"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">
+                  Commitment to Simplicity & Clarity
+                </h3>
+                <p class="text-light">
+                  No jargon. No surprises. We believe in clear communication,
+                  transparent pricing, and making web design accessible to
+                  everyone—not just tech experts.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 md:py-32 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 slide-up">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+          >
+            Our Core <span class="text-accent">Values</span>
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center p-8 slide-up" style="animation-delay: 0.1s">
+            <div
+              class="bg-royal/20 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6"
+            >
+              <i data-lucide="handshake" class="w-10 h-10 text-accent"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Trust First</h3>
+            <p class="text-light">
+              We're building long-term relationships, not just websites. Your
+              success is our success.
+            </p>
+          </div>
+          <div class="text-center p-8 slide-up" style="animation-delay: 0.2s">
+            <div
+              class="bg-royal/20 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6"
+            >
+              <i data-lucide="gauge" class="w-10 h-10 text-accent"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Results Matter</h3>
+            <p class="text-light">
+              Pretty websites are nice. Websites that get you calls and jobs are
+              better. We focus on outcomes.
+            </p>
+          </div>
+          <div class="text-center p-8 slide-up" style="animation-delay: 0.3s">
+            <div
+              class="bg-royal/20 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6"
+            >
+              <i data-lucide="accessibility" class="w-10 h-10 text-accent"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Accessibility for All</h3>
+            <p class="text-light">
+              Professional web presence shouldn't be a luxury. We make it
+              affordable for small businesses.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-dark py-20 md:py-32 relative overflow-hidden">
+      <div
+        class="geo-shape top-10 right-10 w-48 h-48 border border-royal/20 rotate-45 float-animation"
+      ></div>
+      <div
+        class="geo-shape bottom-10 left-10 w-64 h-64 border border-accent/20 rotate-12 float-animation"
+        style="animation-delay: 2s"
+      ></div>
+      <div
+        class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
+      >
+        <div class="slide-up">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to <span class="text-accent">Work With Us</span>?
+          </h2>
+          <p class="text-xl text-light mb-10">
+            Let's build something great together. Your professional website is
+            just a conversation away.
+          </p>
+          <a
+            href="contact.html"
+            class="inline-block bg-royal hover:bg-accent text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 btn-glow"
+          >
+            Work With Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <a href="index.html" class="text-2xl font-bold text-white">
+              <span class="text-royal">Hillview</span> Group
+            </a>
+            <p class="text-light mt-4 text-sm">
+              Affordable, professional websites for local trade businesses.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Services</h4>
+            <ul class="space-y-2 text-light text-sm">
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Starter Website Package</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Logo Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Google Business Setup</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Company</h4>
+            <ul class="space-y-2 text-light text-sm">
+              <li>
+                <a href="about.html" class="hover:text-royal transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-royal transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Contact</h4>
+            <ul class="space-y-2 text-light text-sm">
+              <li>
+                <a
+                  href="mailto:service@hillviewgroupinc.com"
+                  class="hover:text-royal transition-colors"
+                  >service@hillviewgroupinc.com</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-white/10 pt-8 text-center text-light text-sm"
+        >
+          &copy; 2024 Hillview Group, Inc. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Schema Markup for Local Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Hillview Group, Inc.",
+        "description": "Affordable website design for small businesses and local trade companies. Professional starter websites for cleaners, landscapers, HVAC, handymen, and more.",
+        "url": "https://hillviewgroup.com",
+        "telephone": "+1-555-123-4567",
+        "email": "hello@hillviewgroup.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Your City",
+          "addressRegion": "Your State",
+          "addressCountry": "US"
+        },
+        "serviceArea": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.7128",
+            "longitude": "-74.0060"
+          },
+          "geoRadius": "100"
+        },
+        "services": [
+          "Website Design",
+          "Small Business Web Design",
+          "Local SEO",
+          "Website Maintenance"
+        ],
+        "priceRange": "$$"
+      }
+    </script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Services | Hillview Group, Inc. - Website Design Packages for Trades
+    </title>
+    <meta
+      name="description"
+      content="Explore our Starter Website Package and add-on services. Professional, affordable web solutions for local trade businesses. Get your quote today!"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              royal: "#5B2EFF",
+              indigo: "#3D1E8C",
+              navy: "#1F1B3A",
+              accent: "#8B5CF6",
+              dark: "#0F0F14",
+              light: "#E5E7EB",
+            },
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-dark text-white font-sans overflow-x-hidden">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-dark/90 backdrop-blur-md border-b border-white/10"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-[#5B2EFF] to-[#3D1E8C] rounded-xl flex items-center justify-center"
+            >
+              <i data-lucide="mountain" class="w-6 h-6 text-white"></i>
+            </div>
+            <a href="index.html" class="text-2xl font-bold text-white">
+              <span class="text-royal">Hillview</span> Group
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="index.html"
+                class="text-light hover:text-royal transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                >Home</a
+              >
+              <a
+                href="about.html"
+                class="text-light hover:text-royal transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                >About</a
+              >
+              <a
+                href="services.html"
+                class="text-white px-3 py-2 rounded-md text-sm font-medium"
+                >Services</a
+              >
+              <a
+                href="contact.html"
+                class="bg-royal hover:bg-accent text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 btn-glow"
+                >Book Free Consultation</a
+              >
+            </div>
+          </div>
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-btn"
+              class="text-white hover:text-royal p-2"
+            >
+              <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-dark border-t border-white/10"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="index.html"
+            class="text-light block px-3 py-2 rounded-md text-base font-medium"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-light block px-3 py-2 rounded-md text-base font-medium"
+            >About</a
+          >
+          <a
+            href="services.html"
+            class="text-white block px-3 py-2 rounded-md text-base font-medium"
+            >Services</a
+          >
+          <a
+            href="contact.html"
+            class="bg-royal text-white block px-3 py-2 rounded-md text-base font-medium text-center mt-4"
+            >Book Free Consultation</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section
+      class="gradient-hero min-h-[50vh] flex items-center pt-20 relative overflow-hidden"
+    >
+      <div
+        class="geo-shape top-20 right-20 w-48 h-48 border border-white/20 rotate-12 float-animation"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl mx-auto text-center slide-up">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6"
+          >
+            Simple Website Solutions for
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-white"
+              >Hardworking Businesses</span
+            >
+          </h1>
+          <p class="text-xl text-light">
+            Everything you need to establish your online presence and start
+            getting more leads.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Service: Starter Website Package -->
+    <section class="py-20 md:py-32 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="slide-up">
+            <span
+              class="text-accent font-semibold text-sm uppercase tracking-wider"
+              >Core Offer</span
+            >
+            <h2
+              class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 mb-6"
+            >
+              Starter Website <span class="text-accent">Package</span>
+            </h2>
+            <p class="text-light text-lg mb-8">
+              Our complete solution designed specifically for local trade
+              businesses. This isn't just a website—it's your 24/7 sales tool
+              that works while you sleep.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                <div
+                  class="bg-royal/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <i data-lucide="layout" class="w-6 h-6 text-accent"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-lg mb-2">
+                    4-Page Lead-Focused Structure
+                  </h4>
+                  <p class="text-light">
+                    Home page that converts, About page that builds trust,
+                    Services page that showcases your work, and Contact page
+                    that makes it easy to reach you.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div
+                  class="bg-royal/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <i data-lucide="smartphone" class="w-6 h-6 text-accent"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-lg mb-2">Mobile-First Design</h4>
+                  <p class="text-light">
+                    Over 70% of your customers will visit on their phones. Your
+                    site will look flawless and load fast on every device.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div
+                  class="bg-royal/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <i data-lucide="search" class="w-6 h-6 text-accent"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-lg mb-2">SEO Basics Included</h4>
+                  <p class="text-light">
+                    Proper meta tags, structured data, local business schema,
+                    and optimization to help you show up in Google searches.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-10">
+              <a
+                href="contact.html"
+                class="inline-block bg-royal hover:bg-accent text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 btn-glow"
+              >
+                Get Started Today
+              </a>
+            </div>
+          </div>
+          <div class="slide-up" style="animation-delay: 0.2s">
+            <div class="relative">
+              <img
+                src="http://static.photos/technology/640x360/88"
+                alt="Website mockup"
+                class="rounded-3xl shadow-2xl w-full"
+              />
+              <div
+                class="absolute -bottom-6 -right-6 bg-white text-dark p-4 rounded-2xl shadow-xl"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="bg-green-100 p-2 rounded-full">
+                    <i
+                      data-lucide="check-circle"
+                      class="w-6 h-6 text-green-600"
+                    ></i>
+                  </div>
+                  <div>
+                    <p class="text-xs text-gray-500">Average Launch Time</p>
+                    <p class="font-bold text-lg">5-7 Days</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add-On Services -->
+    <section class="py-20 md:py-32 bg-gradient-to-b from-navy to-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 slide-up">
+          <span
+            class="text-accent font-semibold text-sm uppercase tracking-wider"
+            >Enhance Your Package</span
+          >
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 mb-4"
+          >
+            Add-On <span class="text-accent">Services</span>
+          </h2>
+          <p class="text-light text-lg max-w-2xl mx-auto">
+            Customize your package with these additional services.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="bg-navy/50 p-8 rounded-2xl border border-white/10 hover:border-royal/50 transition-all duration-300 group slide-up"
+            style="animation-delay: 0.1s"
+          >
+            <div
+              class="bg-royal/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-royal/30 transition-colors"
+            >
+              <i data-lucide="palette" class="w-8 h-8 text-accent"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Logo Design</h3>
+            <p class="text-light mb-4">
+              Professional logo that represents your brand and appears on your
+              website, business cards, and vehicles.
+            </p>
+            <span class="text-accent font-semibold">Available</span>
+          </div>
+          <div
+            class="bg-navy/50 p-8 rounded-2xl border border-white/10 hover:border-royal/50 transition-all duration-300 group slide-up"
+            style="animation-delay: 0.2s"
+          >
+            <div
+              class="bg-royal/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-royal/30 transition-colors"
+            >
+              <i data-lucide="pen-tool" class="w-8 h-8 text-accent"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Copywriting</h3>
+            <p class="text-light mb-4">
+              Compelling, SEO-optimized content written specifically for your
+              business and target customers.
+            </p>
+            <span class="text-accent font-semibold">Available</span>
+          </div>
+          <div
+            class="bg-navy/50 p-8 rounded-2xl border border-white/10 hover:border-royal/50 transition-all duration-300 group slide-up"
+            style="animation-delay: 0.3s"
+          >
+            <div
+              class="bg-royal/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-royal/30 transition-colors"
+            >
+              <i data-lucide="map-pin" class="w-8 h-8 text-accent"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Google Business Profile</h3>
+            <p class="text-light mb-4">
+              Complete setup and optimization of your Google Business Profile
+              for local search visibility.
+            </p>
+            <span class="text-accent font-semibold">Available</span>
+          </div>
+          <div
+            class="bg-navy/50 p-8 rounded-2xl border border-white/10 hover:border-royal/50 transition-all duration-300 group slide-up"
+            style="animation-delay: 0.4s"
+          >
+            <div
+              class="bg-royal/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-royal/30 transition-colors"
+            >
+              <i data-lucide="server" class="w-8 h-8 text-accent"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Hosting & Maintenance</h3>
+            <p class="text-light mb-4">
+              Optional monthly plans for hosting, updates, backups, and ongoing
+              support.
+            </p>
+            <span class="text-accent font-semibold">Available</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 md:py-32 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 slide-up">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+          >
+            How It <span class="text-accent">Works</span>
+          </h2>
+          <p class="text-light text-lg">
+            Simple 4-step process from conversation to launch.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-4 gap-8">
+          <div
+            class="process-step text-center slide-up"
+            style="animation-delay: 0.1s"
+          >
+            <div
+              class="bg-gradient-to-br from-royal to-accent w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-royal/30"
+            >
+              <span class="text-3xl font-bold">1</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Book a Call</h3>
+            <p class="text-light text-sm">
+              Schedule a free 15-minute consultation to discuss your business
+              needs and goals.
+            </p>
+          </div>
+          <div
+            class="process-step text-center slide-up"
+            style="animation-delay: 0.2s"
+          >
+            <div
+              class="bg-gradient-to-br from-royal to-accent w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-royal/30"
+            >
+              <span class="text-3xl font-bold">2</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">We Gather Info</h3>
+            <p class="text-light text-sm">
+              You provide photos, service details, and any existing content. We
+              handle the rest.
+            </p>
+          </div>
+          <div
+            class="process-step text-center slide-up"
+            style="animation-delay: 0.3s"
+          >
+            <div
+              class="bg-gradient-to-br from-royal to-accent w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-royal/30"
+            >
+              <span class="text-3xl font-bold">3</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Design & Build</h3>
+            <p class="text-light text-sm">
+              We create your website with your branding, mobile optimization,
+              and lead capture forms.
+            </p>
+          </div>
+          <div
+            class="process-step text-center slide-up"
+            style="animation-delay: 0.4s"
+          >
+            <div
+              class="bg-gradient-to-br from-royal to-accent w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-royal/30"
+            >
+              <span class="text-3xl font-bold">4</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Review & Launch</h3>
+            <p class="text-light text-sm">
+              You review the site, we make revisions, then go live. It's that
+              simple.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-dark py-20 md:py-32 relative overflow-hidden">
+      <div
+        class="geo-shape top-10 left-10 w-48 h-48 border border-royal/20 rotate-45 float-animation"
+      ></div>
+      <div
+        class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
+      >
+        <div class="slide-up">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Start Your <span class="text-accent">Website</span>?
+          </h2>
+          <p class="text-xl text-light mb-10">
+            Let's turn your business goals into a professional online presence
+            that gets results.
+          </p>
+          <a
+            href="contact.html"
+            class="inline-block bg-royal hover:bg-accent text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 btn-glow"
+          >
+            Start My Website
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <a href="index.html" class="text-2xl font-bold text-white">
+              <span class="text-royal">Hillview</span> Group
+            </a>
+            <p class="text-light mt-4 text-sm">
+              Affordable, professional websites for local trade businesses.
+              Build your online presence and get more leads.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Services</h4>
+            <ul class="space-y-2 text-light text-sm">
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Starter Website Package</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Logo Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Google Business Setup</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Ongoing Maintenance</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Company</h4>
+            <ul class="space-y-2 text-light text-sm">
+              <li>
+                <a href="about.html" class="hover:text-royal transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-royal transition-colors"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-royal transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-royal transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Contact</h4>
+            <ul class="space-y-2 text-light text-sm">
+              <li class="flex items-center gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-accent"></i>
+                <a
+                  href="mailto:service@hillviewgroupinc.com"
+                  class="hover:text-royal transition-colors"
+                  >service@hillviewgroupinc.com</a
+                >
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-accent"></i>
+                <span>Serving local businesses nationwide</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-light text-sm">
+            &copy; 2024 Hillview Group, Inc. All rights reserved.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="text-light hover:text-royal transition-colors">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-light hover:text-royal transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-light hover:text-royal transition-colors">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

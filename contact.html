@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Contact Us | Hillview Group, Inc. - Book Your Free Consultation
+    </title>
+    <meta
+      name="description"
+      content="Book your free consultation with Hillview Group. Get a professional website for your local trade business. Contact us today for affordable web design services."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/contact.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              royal: "#5B2EFF",
+              indigo: "#3D1E8C",
+              navy: "#1F1B3A",
+              accent: "#8B5CF6",
+              dark: "#0F0F14",
+              light: "#E5E7EB",
+            },
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-dark text-white font-sans overflow-x-hidden">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-dark/90 backdrop-blur-md border-b border-white/10"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-[#5B2EFF] to-[#3D1E8C] rounded-xl flex items-center justify-center"
+            >
+              <i data-lucide="mountain" class="w-6 h-6 text-white"></i>
+            </div>
+            <a href="index.html" class="text-2xl font-bold text-white">
+              <span class="text-royal">Hillview</span> Group
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="index.html"
+                class="text-light hover:text-royal transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                >Home</a
+              >
+              <a
+                href="about.html"
+                class="text-light hover:text-royal transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                >About</a
+              >
+              <a
+                href="services.html"
+                class="text-light hover:text-royal transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                >Services</a
+              >
+              <a
+                href="contact.html"
+                class="bg-royal hover:bg-accent text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 btn-glow"
+                >Book Free Consultation</a
+              >
+            </div>
+          </div>
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-btn"
+              class="text-white hover:text-royal p-2"
+            >
+              <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-dark border-t border-white/10"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="index.html"
+            class="text-light block px-3 py-2 rounded-md text-base font-medium"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-light block px-3 py-2 rounded-md text-base font-medium"
+            >About</a
+          >
+          <a
+            href="services.html"
+            class="text-light block px-3 py-2 rounded-md text-base font-medium"
+            >Services</a
+          >
+          <a
+            href="contact.html"
+            class="bg-royal text-white block px-3 py-2 rounded-md text-base font-medium text-center mt-4"
+            >Book Free Consultation</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section
+      class="gradient-hero min-h-[50vh] flex items-center pt-20 relative overflow-hidden"
+    >
+      <div
+        class="geo-shape top-20 right-20 w-48 h-48 border border-white/20 rotate-12 float-animation"
+      ></div>
+      <div
+        class="geo-shape bottom-20 left-1/4 w-32 h-32 border border-white/15 rotate-45 float-animation"
+        style="animation-delay: 1s"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl mx-auto text-center slide-up">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6"
+          >
+            Let's Build Your
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-white"
+              >Website</span
+            >
+          </h1>
+          <p class="text-xl text-light">
+            Tell us about your business and we'll reach out within 24 hours.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-20 md:py-32 bg-dark">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-5 gap-12">
+          <!-- Contact Info Sidebar -->
+          <div class="lg:col-span-2 slide-up">
+            <div class="space-y-8">
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-4">Get in Touch</h3>
+                <p class="text-light">
+                  Ready to establish your online presence? Fill out the form and
+                  we'll get back to you within 24 hours.
+                </p>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="bg-royal/20 w-12 h-12 rounded-xl flex items-center justify-center"
+                  >
+                    <i data-lucide="mail" class="w-6 h-6 text-accent"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-light">Email us at</p>
+                    <a
+                      href="mailto:info@hillviewgroup.com"
+                      class="text-white font-semibold hover:text-royal transition-colors"
+                      >info@hillviewgroup.com</a
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="bg-royal/20 w-12 h-12 rounded-xl flex items-center justify-center"
+                  >
+                    <i data-lucide="clock" class="w-6 h-6 text-accent"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-light">Response time</p>
+                    <p class="text-white font-semibold">Within 24 hours</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="bg-royal/20 w-12 h-12 rounded-xl flex items-center justify-center"
+                  >
+                    <i data-lucide="map-pin" class="w-6 h-6 text-accent"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-light">Service area</p>
+                    <p class="text-white font-semibold">Nationwide (Remote)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-navy/50 p-6 rounded-2xl border border-white/10">
+                <h4 class="font-semibold mb-3">What happens next?</h4>
+                <ul class="space-y-2 text-light text-sm">
+                  <li class="flex items-start gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-4 h-4 text-accent mt-0.5"
+                    ></i>
+                    <span>We review your submission</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-4 h-4 text-accent mt-0.5"
+                    ></i>
+                    <span>Send you a confirmation email</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-4 h-4 text-accent mt-0.5"
+                    ></i>
+                    <span>Schedule your free consultation</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-4 h-4 text-accent mt-0.5"
+                    ></i>
+                    <span>Discuss your project details</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="lg:col-span-3 slide-up" style="animation-delay: 0.2s">
+            <!-- Success Message -->
+            <div
+              id="success-message"
+              class="success-message bg-green-500/20 border border-green-500/50 p-6 rounded-2xl mb-6"
+            >
+              <div class="flex items-center gap-3">
+                <div
+                  class="bg-green-500/30 w-12 h-12 rounded-full flex items-center justify-center"
+                >
+                  <i
+                    data-lucide="check-circle"
+                    class="w-6 h-6 text-green-400"
+                  ></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-green-400 text-lg">Thank You!</h3>
+                  <p class="text-light">
+                    We received your message and will contact you within 24
+                    hours.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <form
+              id="contact-form"
+              class="bg-navy/30 p-8 rounded-3xl border border-white/10"
+            >
+              <div class="grid md:grid-cols-2 gap-6">
+                <!-- Full Name -->
+                <div class="form-group">
+                  <label for="fullName" class="form-label"
+                    >Full Name <span class="text-red-400">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    required
+                    class="form-input w-full px-4 py-3 rounded-xl"
+                    placeholder="John Smith"
+                  />
+                </div>
+                <!-- Business Name -->
+                <div class="form-group">
+                  <label for="businessName" class="form-label"
+                    >Business Name</label
+                  >
+                  <input
+                    type="text"
+                    id="businessName"
+                    name="businessName"
+                    class="form-input w-full px-4 py-3 rounded-xl"
+                    placeholder="Smith's Landscaping"
+                  />
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <!-- Email -->
+                <div class="form-group">
+                  <label for="email" class="form-label"
+                    >Email <span class="text-red-400">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="form-input w-full px-4 py-3 rounded-xl"
+                    placeholder="john@example.com"
+                  />
+                </div>
+                <!-- Phone -->
+                <div class="form-group">
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="form-input w-full px-4 py-3 rounded-xl"
+                    placeholder="(555) 123-4567"
+                  />
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <!-- Type of Service -->
+                <div class="form-group">
+                  <label for="serviceType" class="form-label"
+                    >Type of Service</label
+                  >
+                  <select
+                    id="serviceType"
+                    name="serviceType"
+                    class="form-input w-full px-4 py-3 rounded-xl"
+                  >
+                    <option value="">Select your trade...</option>
+                    <option value="cleaning">Cleaning</option>
+                    <option value="landscaping">Landscaping</option>
+                    <option value="pressure-washing">Pressure Washing</option>
+                    <option value="hvac">HVAC</option>
+                    <option value="handyman">Handyman</option>
+                    <option value="auto-detailing">
+                      Mobile Auto Detailing
+                    </option>
+                    <option value="contractor">Contractor</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <!-- Domain Status -->
+                <div class="form-group">
+                  <label for="hasDomain" class="form-label"
+                    >Do You Already Have a Domain?</label
+                  >
+                  <select
+                    id="hasDomain"
+                    name="hasDomain"
+                    class="form-input w-full px-4 py-3 rounded-xl"
+                  >
+                    <option value="">Select...</option>
+                    <option value="yes">Yes, I have a domain</option>
+                    <option value="no">No, I need help with this</option>
+                    <option value="unsure">Not sure what this means</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="form-group">
+                <label for="message" class="form-label"
+                  >Message / Project Details
+                  <span class="text-red-400">*</span></label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows="5"
+                  class="form-input w-full px-4 py-3 rounded-xl resize-none"
+                  placeholder="Tell us about your business, your goals, and what you're looking for in a website..."
+                ></textarea>
+              </div>
+
+              <!-- reCAPTCHA -->
+              <div class="form-group">
+                <div
+                  class="g-recaptcha"
+                  data-sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                ></div>
+                <p class="text-light text-xs mt-2">
+                  This helps us prevent spam. Please check the box above.
+                </p>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                id="submit-btn"
+                class="w-full bg-royal hover:bg-accent text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 btn-glow flex items-center justify-center gap-2"
+              >
+                <span id="btn-text">Request My Starter Website</span>
+                <i data-lucide="arrow-right" id="btn-icon" class="w-5 h-5"></i>
+              </button>
+
+              <p class="text-center text-light text-sm mt-4">
+                By submitting, you agree to our
+                <a href="#" class="text-royal hover:text-accent"
+                  >Privacy Policy</a
+                >.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 md:py-32 bg-gradient-to-b from-navy to-dark">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 slide-up">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+          >
+            Frequently Asked <span class="text-accent">Questions</span>
+          </h2>
+        </div>
+        <div class="space-y-4 slide-up" style="animation-delay: 0.2s">
+          <div class="bg-navy/50 p-6 rounded-2xl border border-white/10">
+            <h3 class="font-bold text-lg mb-2">
+              How much does a starter website cost?
+            </h3>
+            <p class="text-light">
+              We offer custom quotes based on your specific needs. Contact us
+              for a free consultation and we'll provide transparent pricing with
+              no hidden fees.
+            </p>
+          </div>
+          <div class="bg-navy/50 p-6 rounded-2xl border border-white/10">
+            <h3 class="font-bold text-lg mb-2">
+              How long does it take to build my website?
+            </h3>
+            <p class="text-light">
+              Most starter websites are completed within 5-7 business days after
+              we receive all your content and information.
+            </p>
+          </div>
+          <div class="bg-navy/50 p-6 rounded-2xl border border-white/10">
+            <h3 class="font-bold text-lg mb-2">
+              Do I need to know how to code?
+            </h3>
+            <p class="text-light">
+              Not at all! We handle all the technical work. You just provide the
+              information about your business and we do the rest.
+            </p>
+          </div>
+          <div class="bg-navy/50 p-6 rounded-2xl border border-white/10">
+            <h3 class="font-bold text-lg mb-2">
+              What if I don't have a domain name?
+            </h3>
+            <p class="text-light">
+              No problem! We can help you choose and register the perfect domain
+              name for your business as part of our service.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <a href="index.html" class="text-2xl font-bold text-white">
+              <span class="text-royal">Hillview</span> Group
+            </a>
+            <p class="text-light mt-4 text-sm">
+              Affordable, professional websites for local trade businesses.
+              Build your online presence and get more leads.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Services</h4>
+            <ul class="space-y-2 text-light text-sm">
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Starter Website Package</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Logo Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Google Business Setup</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Ongoing Maintenance</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Company</h4>
+            <ul class="space-y-2 text-light text-sm">
+              <li>
+                <a href="about.html" class="hover:text-royal transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-royal transition-colors"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-royal transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-royal transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Contact</h4>
+            <ul class="space-y-2 text-light text-sm">
+              <li class="flex items-center gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-accent"></i>
+                <a
+                  href="mailto:info@hillviewgroup.com"
+                  class="hover:text-royal transition-colors"
+                  >info@hillviewgroup.com</a
+                >
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-accent"></i>
+                <span>Serving local businesses nationwide</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-light text-sm">
+            &copy; 2024 Hillview Group, Inc. All rights reserved.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="text-light hover:text-royal transition-colors">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-light hover:text-royal transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-light hover:text-royal transition-colors">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/script.js"></script>
+    <script src="js/contact-form.js"></script>
+  </body>
+</html>
