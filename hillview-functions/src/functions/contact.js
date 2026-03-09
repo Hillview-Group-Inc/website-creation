@@ -1,10 +1,10 @@
 const { app } = require("@azure/functions");
 const nodemailer = require("nodemailer");
 const { body, validationResult } = require("express-validator");
-const cors = require("cors");
+// const cors = require("cors");
 
 // Middleware
-app.use(cors());
+// app.use(cors());
 
 app.http("contact", {
   methods: ["POST"],
