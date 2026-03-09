@@ -322,14 +322,14 @@ app.http("contact", {
       context.log("Admin email sent:", adminResult.messageId);
       context.log("Customer email sent:", customerResult.messageId);
 
-      // Log submission (you could also save to database here)
-      context.log("Form submission:", {
-        timestamp: new Date().toISOString(),
-        fullName,
-        email,
-        businessName,
-        serviceType,
-      });
+      //   // Log submission (you could also save to database here)
+      //   context.log("Form submission:", {
+      //     timestamp: new Date().toISOString(),
+      //     fullName,
+      //     email,
+      //     businessName,
+      //     serviceType,
+      //   });
 
       return {
         status: 200,
