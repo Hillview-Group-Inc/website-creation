@@ -3,7 +3,7 @@ lucide.createIcons();
 
 // Mobile Menu Toggle
 const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-const closeMobileMenu = document.getElementById("closeMobileMenu");
+const closeMobileMenu = document.getElementById("close-mobile-menu");
 const mobileMenu = document.getElementById("mobile-menu");
 
 mobileMenuBtn.addEventListener("click", () => {
