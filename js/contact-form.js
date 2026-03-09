@@ -105,16 +105,16 @@ document
   });
 
 // Optional: Test API connection on page load
-window.addEventListener("load", async () => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/health`);
-    if (response.ok) {
-      console.log("✅ Backend API is connected and running");
-    }
-  } catch (error) {
-    console.warn(
-      "⚠️ Backend API not reachable. Make sure the server is running on " +
-        API_BASE_URL,
-    );
-  }
-});
+// window.addEventListener("load", async () => {
+//   try {
+//     const response = await fetch(`${API_BASE_URL}/api/health`);
+//     if (response.ok) {
+//       console.log("✅ Backend API is connected and running");
+//     }
+//   } catch (error) {
+//     console.warn(
+//       "⚠️ Backend API not reachable. Make sure the server is running on " +
+//         API_BASE_URL,
+//     );
+//   }
+// });
