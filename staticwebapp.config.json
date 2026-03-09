@@ -1,0 +1,7 @@
+{
+  "globalHeaders": {
+    "Content-Security-Policy": "default-src 'self'; script-src 'self'; object-src 'none'",
+    "Access-Control-Allow-Origin": "*",
+    "X-Content-Type-Options": "nosniff"
+  }
+}

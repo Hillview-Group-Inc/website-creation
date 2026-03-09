@@ -1,24 +1,24 @@
 const { app } = require("@azure/functions");
 const nodemailer = require("nodemailer");
 const { body, validationResult } = require("express-validator");
-const cors = require("cors");
+// const cors = require("cors");
 
 // Middleware
-const whitelist = ["https://hvgweb.com"];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true); // allow non-browser requests like curl
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
-};
-app.use(cors(corsOptions));
+// const whitelist = ["https://hvgweb.com"];
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (!origin) return callback(null, true); // allow non-browser requests like curl
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   credentials: true,
+//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
+// };
+// app.use(cors(corsOptions));
 
 app.http("contact", {
   methods: ["POST"],
