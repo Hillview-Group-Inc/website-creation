@@ -1,0 +1,19 @@
+{
+  "name": "hillview-functions",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "nodemailer": "^8.0.1"
+  },
+  "devDependencies": {},
+  "main": "src/{index.js,functions/*.js}"
+}
