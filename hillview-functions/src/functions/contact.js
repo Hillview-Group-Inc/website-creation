@@ -311,10 +311,13 @@ app.http("contact", {
       };
 
       // Send both emails
-      const [adminResult, customerResult] = await Promise.all([
-        transporter.sendMail(adminMailOptions),
-        transporter.sendMail(customerMailOptions),
-      ]);
+      //   const [adminResult, customerResult] = await Promise.all([
+      //     transporter.sendMail(adminMailOptions),
+      //     transporter.sendMail(customerMailOptions),
+      //   ]);
+
+      await transporter.sendMail(adminMailOptions);
+      await transporter.sendMail(customerMailOptions);
 
       context.log("Admin email sent:", adminResult.messageId);
       context.log("Customer email sent:", customerResult.messageId);
