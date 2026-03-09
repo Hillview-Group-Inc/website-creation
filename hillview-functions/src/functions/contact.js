@@ -18,7 +18,15 @@ const { body, validationResult } = require("express-validator");
 //   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 //   allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
 // };
-// app.use(cors(corsOptions));
+
+// Configure CORS with specific options
+const corsOptions = {
+  origin: "https://hvgweb.com", // Only allow this origin
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Specify allowed methods
+  allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
+};
+
+app.use(cors(corsOptions));
 
 app.http("contact", {
   methods: ["POST"],
