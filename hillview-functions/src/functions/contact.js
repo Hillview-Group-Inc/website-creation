@@ -1,7 +1,6 @@
 const { app } = require("@azure/functions");
 const nodemailer = require("nodemailer");
 const { body, validationResult } = require("express-validator");
-// const cors = require("cors");
 
 // Middleware
 // const whitelist = ["https://hvgweb.com"];
@@ -19,22 +18,27 @@ const { body, validationResult } = require("express-validator");
 //   allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
 // };
 
-// Configure CORS with specific options
-const corsOptions = {
-  origin: "https://hvgweb.com", // Only allow this origin
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Specify allowed methods
-  allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
+const ALLOWED_ORIGIN = "https://hvgweb.com";
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
-app.use(cors(corsOptions));
-
 app.http("contact", {
-  methods: ["POST"],
+  methods: ["POST", "OPTIONS"],
   authLevel: "anonymous", // or 'function', 'admin'
   handler: async (request, context) => {
     context.log("HTTP trigger function processed a request.");
     // Use your existing logic from server.js here
     // Access request data via request.query, request.body, etc.
+
+    if (request.method === "OPTIONS") {
+      return {
+        status: 204,
+        headers: CORS_HEADERS,
+      };
+    }
 
     // Contact form endpoint
     try {
@@ -342,8 +346,8 @@ app.http("contact", {
       //     transporter.sendMail(customerMailOptions),
       //   ]);
 
-      await transporter.sendMail(adminMailOptions);
-      await transporter.sendMail(customerMailOptions);
+      const adminResult = await transporter.sendMail(adminMailOptions);
+      const customerResult = await transporter.sendMail(customerMailOptions);
 
       context.log("Admin email sent:", adminResult.messageId);
       context.log("Customer email sent:", customerResult.messageId);
@@ -365,6 +369,7 @@ app.http("contact", {
         }),
         headers: {
           "Content-Type": "application/json",
+          ...CORS_HEADERS,
         },
       };
     } catch (error) {
@@ -372,16 +377,8 @@ app.http("contact", {
       return {
         status: 500,
         body: "Something went wrong. Please try again or contact us directly at service@hillviewgroupinc.com",
+        headers: CORS_HEADERS,
       };
     }
-
-    // Start server
-    app.listen(PORT, () => {
-      context.log(`🚀 Server running on port ${PORT}`);
-      context.log(
-        `📧 Email service configured for: ${process.env.SMTP_USER || "Not configured"}`,
-      );
-      context.log(`🔗 API endpoint: http://localhost:${PORT}/api/contact`);
-    });
   },
 });
