@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = "https://orange-sea-03d42eb0f.2.azurestaticapps.net"; //"http://localhost:3000"; // Development URL when local testing
+const API_BASE_URL = "https://hvgweb.com"; // "https://orange-sea-03d42eb0f.2.azurestaticapps.net"; //"http://localhost:3000"; // Development URL when local testing
 
 // Contact Form Handling
 document
