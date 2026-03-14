@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-L5KS62FEBM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-L5KS62FEBM");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog | Hillview Group - Web Design Tips for Small Businesses</title>
+    <meta
+      name="description"
+      content="Expert tips and strategies for small businesses looking to establish their online presence. Learn about web design, SEO, and digital marketing for local trades."
+    />
+    <meta
+      name="keywords"
+      content="small business website tips, web design blog, SEO for trades, local business marketing"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/blog.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              royal: "#5B2EFF",
+              indigo: "#3D1E8C",
+              navy: "#1F1B3A",
+              accent: "#8B5CF6",
+              dark: "#0F0F14",
+              light: "#E5E7EB",
+              tips: "#10B981",
+              growth: "#F59E0B",
+              wellness: "#EC4899",
+              seasonal: "#3B82F6",
+            },
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-dark text-white font-sans overflow-x-hidden">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-dark/90 backdrop-blur-md border-b border-white/10"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-[#5B2EFF] to-[#3D1E8C] rounded-xl flex items-center justify-center"
+            >
+              <i data-lucide="mountain" class="w-6 h-6 text-white"></i>
+            </div>
+            <a href="index.html" class="text-2xl font-bold text-white">
+              <span class="text-royal">Hillview</span> Group
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="index.html"
+                class="text-light hover:text-royal transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                >Home</a
+              >
+              <a
+                href="about.html"
+                class="text-light hover:text-royal transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                >About</a
+              >
+              <a
+                href="services.html"
+                class="text-light hover:text-royal transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                >Services</a
+              >
+              <a
+                href="blog.html"
+                class="text-white px-3 py-2 rounded-md text-sm font-medium"
+                >Blog</a
+              >
+              <a
+                href="contact.html"
+                class="bg-royal hover:bg-accent text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 btn-glow"
+                >Book Free Consultation</a
+              >
+            </div>
+          </div>
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-btn"
+              class="text-white hover:text-royal p-2"
+            >
+              <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-dark border-t border-white/10"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="index.html"
+            class="text-light block px-3 py-2 rounded-md text-base font-medium"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-light block px-3 py-2 rounded-md text-base font-medium"
+            >About</a
+          >
+          <a
+            href="services.html"
+            class="text-light block px-3 py-2 rounded-md text-base font-medium"
+            >Services</a
+          >
+          <a
+            href="blog.html"
+            class="text-white block px-3 py-2 rounded-md text-base font-medium"
+            >Blog</a
+          >
+          <a
+            href="contact.html"
+            class="bg-royal text-white block px-3 py-2 rounded-md text-base font-medium text-center mt-4"
+            >Book Free Consultation</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section
+      class="gradient-hero min-h-[40vh] flex items-center pt-20 relative overflow-hidden"
+    >
+      <div
+        class="geo-shape top-20 right-20 w-48 h-48 border border-white/20 rotate-12 float-animation"
+      ></div>
+      <div
+        class="geo-shape bottom-20 left-1/4 w-32 h-32 border border-white/15 rotate-45 float-animation"
+        style="animation-delay: 1s"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl mx-auto text-center slide-up">
+          <span
+            class="text-accent font-semibold text-sm uppercase tracking-wider"
+            >Insights & Strategies</span
+          >
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 mt-4"
+          >
+            Small Business
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-white"
+              >Growth Blog</span
+            >
+          </h1>
+          <p class="text-xl text-light">
+            Expert tips to help your local trade business thrive online and
+            offline.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Grid Section -->
+    <section class="py-20 md:py-32 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Category Filter -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12 slide-up">
+          <button
+            onclick="filterArticles('all')"
+            class="filter-btn active px-6 py-2 rounded-full border border-white/20 hover:border-royal hover:bg-royal/20 transition-all text-sm font-medium"
+            data-category="all"
+          >
+            All Articles
+          </button>
+          <button
+            onclick="filterArticles('tips')"
+            class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-royal hover:bg-royal/20 transition-all text-sm font-medium"
+            data-category="tips"
+          >
+            Tips & Tricks
+          </button>
+          <button
+            onclick="filterArticles('growth')"
+            class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-royal hover:bg-royal/20 transition-all text-sm font-medium"
+            data-category="growth"
+          >
+            Growth Strategy
+          </button>
+          <button
+            onclick="filterArticles('wellness')"
+            class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-royal hover:bg-royal/20 transition-all text-sm font-medium"
+            data-category="wellness"
+          >
+            Health & Wellness
+          </button>
+          <button
+            onclick="filterArticles('seasonal')"
+            class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-royal hover:bg-royal/20 transition-all text-sm font-medium"
+            data-category="seasonal"
+          >
+            Seasonal
+          </button>
+        </div>
+
+        <!-- Loading State -->
+        <div
+          id="loading-state"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <div class="bg-navy/50 p-8 rounded-2xl border border-white/10">
+            <div class="skeleton w-16 h-16 mb-6"></div>
+            <div class="skeleton w-full h-6 mb-3"></div>
+            <div class="skeleton w-3/4 h-6 mb-6"></div>
+            <div class="skeleton w-full h-20 mb-4"></div>
+            <div class="skeleton w-1/2 h-4"></div>
+          </div>
+          <div class="bg-navy/50 p-8 rounded-2xl border border-white/10">
+            <div class="skeleton w-16 h-16 mb-6"></div>
+            <div class="skeleton w-full h-6 mb-3"></div>
+            <div class="skeleton w-3/4 h-6 mb-6"></div>
+            <div class="skeleton w-full h-20 mb-4"></div>
+            <div class="skeleton w-1/2 h-4"></div>
+          </div>
+          <div class="bg-navy/50 p-8 rounded-2xl border border-white/10">
+            <div class="skeleton w-16 h-16 mb-6"></div>
+            <div class="skeleton w-full h-6 mb-3"></div>
+            <div class="skeleton w-3/4 h-6 mb-6"></div>
+            <div class="skeleton w-full h-20 mb-4"></div>
+            <div class="skeleton w-1/2 h-4"></div>
+          </div>
+        </div>
+
+        <!-- Articles Grid -->
+        <div
+          id="articles-grid"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 hidden"
+        >
+          <!-- Articles will be loaded here dynamically -->
+        </div>
+
+        <!-- No Results -->
+        <div id="no-results" class="hidden text-center py-16">
+          <div
+            class="bg-royal/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
+            <i class="fas fa-search text-3xl text-accent"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">No articles found</h3>
+          <p class="text-light">Try selecting a different category.</p>
+        </div>
+
+        <!-- CTA Box -->
+        <div
+          class="mt-20 bg-gradient-to-br from-navy to-indigo p-8 md:p-12 rounded-3xl border border-royal/30 text-center slide-up"
+        >
+          <h3 class="text-2xl md:text-3xl font-bold mb-4">
+            Ready to Apply These Strategies?
+          </h3>
+          <p class="text-light mb-8 max-w-2xl mx-auto">
+            Let's build a professional website that implements these growth
+            strategies for your business.
+          </p>
+          <a
+            href="contact.html"
+            class="inline-block bg-royal hover:bg-accent text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 btn-glow"
+          >
+            Get Your Free Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Modal -->
+    <div id="article-modal" class="modal">
+      <div class="modal-content p-8 md:p-12">
+        <button class="modal-close" onclick="closeModal()">
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="modal-body">
+          <!-- Modal content loaded dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <a href="index.html" class="text-2xl font-bold text-white">
+              <span class="text-royal">Hillview</span> Group
+            </a>
+            <p class="text-light mt-4 text-sm">
+              Affordable, professional websites for local trade businesses.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Services</h4>
+            <ul class="space-y-2 text-light text-sm">
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Starter Website Package</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Logo Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-royal transition-colors"
+                  >Google Business Setup</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Company</h4>
+            <ul class="space-y-2 text-light text-sm">
+              <li>
+                <a href="about.html" class="hover:text-royal transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="blog.html" class="hover:text-royal transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-royal transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Contact</h4>
+            <ul class="space-y-2 text-light text-sm">
+              <li>
+                <a
+                  href="mailto:info@hillviewgroup.com"
+                  class="hover:text-royal transition-colors"
+                  >info@hillviewgroup.com</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-white/10 pt-8 text-center text-light text-sm"
+        >
+          &copy; 2024 Hillview Group, Inc. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
