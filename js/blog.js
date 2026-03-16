@@ -36,7 +36,7 @@ window.addEventListener("load", async () => {
 
 async function loadArticles() {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/blog`);
+    const response = await fetch(`${API_BASE_URL}/blog`);
     if (response.ok) {
       const data = await response.json();
       allArticles = data.articles;
