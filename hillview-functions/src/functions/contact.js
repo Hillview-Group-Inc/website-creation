@@ -1,6 +1,7 @@
 const { app } = require("@azure/functions");
 const nodemailer = require("nodemailer");
 const { body, validationResult } = require("express-validator");
+const { buildCorsHeaders } = require("./_shared");
 
 // Middleware
 // const whitelist = ["https://hvgweb.com"];
@@ -18,12 +19,7 @@ const { body, validationResult } = require("express-validator");
 //   allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
 // };
 
-const ALLOWED_ORIGIN = "https://hvgweb.com";
-const CORS_HEADERS = {
-  "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization",
-};
+const CORS_METHODS = "POST, OPTIONS";
 
 app.http("contact", {
   methods: ["POST", "OPTIONS"],
@@ -33,10 +29,15 @@ app.http("contact", {
     // Use your existing logic from server.js here
     // Access request data via request.query, request.body, etc.
 
+    const corsHeaders = buildCorsHeaders(
+      CORS_METHODS,
+      request.headers.get("origin"),
+    );
+
     if (request.method === "OPTIONS") {
       return {
         status: 204,
-        headers: CORS_HEADERS,
+        headers: corsHeaders,
       };
     }
 
@@ -369,7 +370,7 @@ app.http("contact", {
         }),
         headers: {
           "Content-Type": "application/json",
-          ...CORS_HEADERS,
+          ...corsHeaders,
         },
       };
     } catch (error) {
@@ -377,7 +378,7 @@ app.http("contact", {
       return {
         status: 500,
         body: "Something went wrong. Please try again or contact us directly at service@hillviewgroupinc.com",
-        headers: CORS_HEADERS,
+        headers: corsHeaders,
       };
     }
   },

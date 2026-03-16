@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Blog Management | Hillview Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles/admin-blog.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              royal: "#5B2EFF",
+              indigo: "#3D1E8C",
+              navy: "#1F1B3A",
+              accent: "#8B5CF6",
+              dark: "#0F0F14",
+              light: "#E5E7EB",
+            },
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="text-white font-sans">
+    <!-- Login Section -->
+    <div
+      id="login-section"
+      class="min-h-screen flex items-center justify-center p-4"
+    >
+      <div class="admin-card w-full max-w-md p-8 rounded-2xl">
+        <div class="text-center mb-8">
+          <h1 class="text-2xl font-bold mb-2">
+            <span class="text-royal">Admin</span> Portal
+          </h1>
+          <p class="text-light text-sm">Blog Management System</p>
+        </div>
+        <form id="login-form" class="space-y-6">
+          <div>
+            <label class="block text-sm font-medium mb-2">Username</label>
+            <input
+              type="text"
+              id="username"
+              required
+              class="form-input w-full px-4 py-3 rounded-xl"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Password</label>
+            <input
+              type="password"
+              id="password"
+              required
+              class="form-input w-full px-4 py-3 rounded-xl"
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn-primary w-full py-3 rounded-xl font-semibold"
+          >
+            <i class="fas fa-sign-in-alt mr-2"></i>Sign In
+          </button>
+          <p
+            id="login-error"
+            class="text-red-400 text-sm text-center hidden"
+          ></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="dashboard-section" class="hidden min-h-screen">
+      <!-- Header -->
+      <header class="admin-card border-b border-white/10 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-shield-alt text-royal text-xl"></i>
+              <span class="font-bold text-lg">Blog Admin</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <span
+                id="user-display"
+                class="text-light text-sm hidden md:block"
+              ></span>
+              <button
+                onclick="logout()"
+                class="text-light hover:text-white transition-colors"
+              >
+                <i class="fas fa-sign-out-alt mr-1"></i> Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Tabs -->
+        <div class="flex gap-8 border-b border-white/10 mb-8">
+          <button
+            onclick="showTab('articles')"
+            id="tab-articles"
+            class="tab-btn pb-4 font-medium tab-active"
+          >
+            All Articles
+          </button>
+          <button
+            onclick="showTab('new')"
+            id="tab-new"
+            class="tab-btn pb-4 font-medium text-light hover:text-white"
+          >
+            <i class="fas fa-plus mr-2"></i>New Article
+          </button>
+        </div>
+
+        <!-- Articles List Tab -->
+        <div id="content-articles" class="tab-content">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">Manage Articles</h2>
+            <button
+              onclick="showTab('new')"
+              class="btn-primary px-6 py-2 rounded-lg text-sm"
+            >
+              <i class="fas fa-plus mr-2"></i>Add New
+            </button>
+          </div>
+
+          <div
+            id="articles-list"
+            class="admin-card rounded-2xl overflow-hidden"
+          >
+            <div class="p-4 text-center text-light">
+              <i class="fas fa-spinner fa-spin mr-2"></i> Loading articles...
+            </div>
+          </div>
+        </div>
+
+        <!-- New/Edit Article Tab -->
+        <div id="content-new" class="tab-content hidden">
+          <div class="max-w-3xl mx-auto">
+            <h2 id="form-title" class="text-2xl font-bold mb-6">
+              Create New Article
+            </h2>
+            <form
+              id="article-form"
+              class="admin-card p-8 rounded-2xl space-y-6"
+            >
+              <input type="hidden" id="article-id" />
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium mb-2"
+                    >Title <span class="text-red-400">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="article-title"
+                    required
+                    class="form-input w-full px-4 py-3 rounded-xl"
+                    placeholder="Article title"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-2"
+                    >Author <span class="text-red-400">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="article-author"
+                    required
+                    class="form-input w-full px-4 py-3 rounded-xl"
+                    placeholder="Author name"
+                  />
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium mb-2"
+                    >Category <span class="text-red-400">*</span></label
+                  >
+                  <select
+                    id="article-category"
+                    required
+                    class="form-input w-full px-4 py-3 rounded-xl"
+                  >
+                    <option value="">Select category...</option>
+                    <option value="tips">Tips & Tricks</option>
+                    <option value="growth">Growth Strategy</option>
+                    <option value="wellness">Health & Wellness</option>
+                    <option value="seasonal">Seasonal</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-2"
+                    >Icon <span class="text-red-400">*</span></label
+                  >
+                  <select
+                    id="article-icon"
+                    required
+                    class="form-input w-full px-4 py-3 rounded-xl"
+                  >
+                    <option value="fa-lightbulb">Lightbulb (Tips)</option>
+                    <option value="fa-chart-line">Chart (Growth)</option>
+                    <option value="fa-heart">Heart (Wellness)</option>
+                    <option value="fa-calendar-alt">Calendar (Seasonal)</option>
+                    <option value="fa-star">Star</option>
+                    <option value="fa-tools">Tools</option>
+                    <option value="fa-mobile-alt">Mobile</option>
+                    <option value="fa-search">Search</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium mb-2"
+                  >Excerpt <span class="text-red-400">*</span></label
+                >
+                <textarea
+                  id="article-excerpt"
+                  required
+                  rows="3"
+                  class="form-input w-full px-4 py-3 rounded-xl resize-none"
+                  placeholder="Brief summary (shown in card preview)..."
+                ></textarea>
+                <p class="text-light text-xs mt-1">
+                  Maximum 200 characters recommended
+                </p>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium mb-2"
+                  >Full Content <span class="text-red-400">*</span></label
+                >
+                <textarea
+                  id="article-content"
+                  required
+                  rows="10"
+                  class="form-input w-full px-4 py-3 rounded-xl resize-none"
+                  placeholder="Full article content..."
+                ></textarea>
+              </div>
+
+              <div class="flex gap-4 pt-4">
+                <button
+                  type="submit"
+                  class="btn-primary flex-1 py-3 rounded-xl font-semibold"
+                >
+                  <i class="fas fa-save mr-2"></i>Save Article
+                </button>
+                <button
+                  type="button"
+                  onclick="showTab('articles')"
+                  class="px-6 py-3 rounded-xl border border-white/20 hover:bg-white/10 transition-colors"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/admin-blog.js"></script>
+  </body>
+</html>
