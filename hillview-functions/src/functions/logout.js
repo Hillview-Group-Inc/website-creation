@@ -1,20 +1,21 @@
 const { app } = require("@azure/functions");
+const { buildCorsHeaders } = require("./_shared");
 
-const ALLOWED_ORIGIN = "https://hvgweb.com";
-const CORS_HEADERS = {
-  "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization",
-};
+const CORS_METHODS = "POST, OPTIONS";
 
 app.http("logout", {
   methods: ["POST", "OPTIONS"],
   authLevel: "anonymous",
   handler: async (request) => {
+    const corsHeaders = buildCorsHeaders(
+      CORS_METHODS,
+      request.headers.get("origin"),
+    );
+
     if (request.method === "OPTIONS") {
       return {
         status: 204,
-        headers: CORS_HEADERS,
+        headers: corsHeaders,
       };
     }
 
@@ -26,7 +27,7 @@ app.http("logout", {
       }),
       headers: {
         "Content-Type": "application/json",
-        ...CORS_HEADERS,
+        ...corsHeaders,
       },
     };
   },

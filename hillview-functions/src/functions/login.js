@@ -2,13 +2,9 @@ const { app } = require("@azure/functions");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const sql = require("mssql");
+const { buildCorsHeaders } = require("./_shared");
 
-const ALLOWED_ORIGIN = "https://hvgweb.com";
-const CORS_HEADERS = {
-  "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization",
-};
+const CORS_METHODS = "POST, OPTIONS";
 
 const JWT_SECRET =
   process.env.JWT_SECRET || "hillview-jwt-secret-change-in-production";
@@ -91,10 +87,15 @@ app.http("login", {
   methods: ["POST", "OPTIONS"],
   authLevel: "anonymous",
   handler: async (request, context) => {
+    const corsHeaders = buildCorsHeaders(
+      CORS_METHODS,
+      request.headers.get("origin"),
+    );
+
     if (request.method === "OPTIONS") {
       return {
         status: 204,
-        headers: CORS_HEADERS,
+        headers: corsHeaders,
       };
     }
 
@@ -113,7 +114,7 @@ app.http("login", {
           }),
           headers: {
             "Content-Type": "application/json",
-            ...CORS_HEADERS,
+            ...corsHeaders,
           },
         };
       }
@@ -141,7 +142,7 @@ app.http("login", {
           }),
           headers: {
             "Content-Type": "application/json",
-            ...CORS_HEADERS,
+            ...corsHeaders,
           },
         };
       }
@@ -157,7 +158,7 @@ app.http("login", {
           }),
           headers: {
             "Content-Type": "application/json",
-            ...CORS_HEADERS,
+            ...corsHeaders,
           },
         };
       }
@@ -195,7 +196,7 @@ app.http("login", {
         }),
         headers: {
           "Content-Type": "application/json",
-          ...CORS_HEADERS,
+          ...corsHeaders,
         },
       };
     } catch (error) {
@@ -208,7 +209,7 @@ app.http("login", {
         }),
         headers: {
           "Content-Type": "application/json",
-          ...CORS_HEADERS,
+          ...corsHeaders,
         },
       };
     }

@@ -4,7 +4,7 @@ const sql = require("mssql");
 const { mockArticles } = require("./_mockData");
 const { dbConfig, buildCorsHeaders } = require("./_shared");
 
-const CORS_HEADERS = buildCorsHeaders("PUT, OPTIONS");
+const CORS_METHODS = "PUT, OPTIONS";
 
 const JWT_SECRET =
   process.env.JWT_SECRET || "hillview-jwt-secret-change-in-production";
@@ -43,10 +43,15 @@ app.http("updateArticle", {
   methods: ["PUT", "OPTIONS"],
   authLevel: "anonymous",
   handler: async (request, context) => {
+    const corsHeaders = buildCorsHeaders(
+      CORS_METHODS,
+      request.headers.get("origin"),
+    );
+
     if (request.method === "OPTIONS") {
       return {
         status: 204,
-        headers: CORS_HEADERS,
+        headers: corsHeaders,
       };
     }
 
@@ -61,7 +66,7 @@ app.http("updateArticle", {
           }),
           headers: {
             "Content-Type": "application/json",
-            ...CORS_HEADERS,
+            ...corsHeaders,
           },
         };
       }
@@ -78,7 +83,7 @@ app.http("updateArticle", {
           }),
           headers: {
             "Content-Type": "application/json",
-            ...CORS_HEADERS,
+            ...corsHeaders,
           },
         };
       }
@@ -92,7 +97,7 @@ app.http("updateArticle", {
           }),
           headers: {
             "Content-Type": "application/json",
-            ...CORS_HEADERS,
+            ...corsHeaders,
           },
         };
       }
@@ -110,7 +115,7 @@ app.http("updateArticle", {
           }),
           headers: {
             "Content-Type": "application/json",
-            ...CORS_HEADERS,
+            ...corsHeaders,
           },
         };
       }
@@ -139,7 +144,7 @@ app.http("updateArticle", {
           }),
           headers: {
             "Content-Type": "application/json",
-            ...CORS_HEADERS,
+            ...corsHeaders,
           },
         };
       }
@@ -164,7 +169,7 @@ app.http("updateArticle", {
           }),
           headers: {
             "Content-Type": "application/json",
-            ...CORS_HEADERS,
+            ...corsHeaders,
           },
         };
       }
@@ -192,7 +197,7 @@ app.http("updateArticle", {
         }),
         headers: {
           "Content-Type": "application/json",
-          ...CORS_HEADERS,
+          ...corsHeaders,
         },
       };
     } catch (error) {
@@ -205,7 +210,7 @@ app.http("updateArticle", {
         }),
         headers: {
           "Content-Type": "application/json",
-          ...CORS_HEADERS,
+          ...corsHeaders,
         },
       };
     }

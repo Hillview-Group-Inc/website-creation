@@ -4,7 +4,7 @@ const sql = require("mssql");
 const { mockArticles } = require("./_mockData");
 const { dbConfig, buildCorsHeaders } = require("./_shared");
 
-const CORS_HEADERS = buildCorsHeaders("GET, OPTIONS");
+const CORS_METHODS = "GET, OPTIONS";
 
 const JWT_SECRET =
   process.env.JWT_SECRET || "hillview-jwt-secret-change-in-production";
@@ -43,10 +43,15 @@ app.http("getAdminArticles", {
   methods: ["GET", "OPTIONS"],
   authLevel: "anonymous",
   handler: async (request, context) => {
+    const corsHeaders = buildCorsHeaders(
+      CORS_METHODS,
+      request.headers.get("origin"),
+    );
+
     if (request.method === "OPTIONS") {
       return {
         status: 204,
-        headers: CORS_HEADERS,
+        headers: corsHeaders,
       };
     }
 
@@ -61,7 +66,7 @@ app.http("getAdminArticles", {
           }),
           headers: {
             "Content-Type": "application/json",
-            ...CORS_HEADERS,
+            ...corsHeaders,
           },
         };
       }
@@ -78,7 +83,7 @@ app.http("getAdminArticles", {
           }),
           headers: {
             "Content-Type": "application/json",
-            ...CORS_HEADERS,
+            ...corsHeaders,
           },
         };
       }
@@ -92,7 +97,7 @@ app.http("getAdminArticles", {
           }),
           headers: {
             "Content-Type": "application/json",
-            ...CORS_HEADERS,
+            ...corsHeaders,
           },
         };
       }
@@ -118,7 +123,7 @@ app.http("getAdminArticles", {
         body: JSON.stringify({ success: true, articles }),
         headers: {
           "Content-Type": "application/json",
-          ...CORS_HEADERS,
+          ...corsHeaders,
         },
       };
     } catch (error) {
@@ -131,7 +136,7 @@ app.http("getAdminArticles", {
         }),
         headers: {
           "Content-Type": "application/json",
-          ...CORS_HEADERS,
+          ...corsHeaders,
         },
       };
     }
