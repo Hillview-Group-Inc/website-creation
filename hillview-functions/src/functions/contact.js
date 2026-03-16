@@ -2,25 +2,60 @@ const { app } = require("@azure/functions");
 const nodemailer = require("nodemailer");
 const { body, validationResult } = require("express-validator");
 const { buildCorsHeaders } = require("./_shared");
-const secretKey = process.env.SECRET_KEY; // "YOUR_SECRET_KEY" Keep this safe!
-
-// Middleware
-// const whitelist = ["https://hvgweb.com"];
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (!origin) return callback(null, true); // allow non-browser requests like curl
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
-//   credentials: true,
-//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-//   allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
-// };
+const secretKey = process.env.RECAPTCHA_SECRET; // "YOUR_SECRET_KEY" Keep this safe!
 
 const CORS_METHODS = "POST, OPTIONS";
+
+function jsonResponse(status, payload, corsHeaders) {
+  return {
+    status,
+    body: JSON.stringify(payload),
+    headers: {
+      "Content-Type": "application/json",
+      ...corsHeaders,
+    },
+  };
+}
+
+async function verifyRecaptcha(recaptchaToken) {
+  if (!secretKey) {
+    return { ok: true, skipped: true };
+  }
+
+  if (!recaptchaToken) {
+    return { ok: false, message: "reCAPTCHA token missing." };
+  }
+
+  const params = new URLSearchParams({
+    secret: secretKey,
+    response: recaptchaToken,
+  });
+
+  const response = await fetch(
+    "https://www.google.com/recaptcha/api/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params.toString(),
+    },
+  );
+
+  const data = await response.json();
+
+  if (!data.success) {
+    return {
+      ok: false,
+      message: "Verification failed",
+      errors: data["error-codes"],
+    };
+  }
+
+  if (typeof data.score === "number" && data.score < 0.5) {
+    return { ok: false, message: "reCAPTCHA score too low." };
+  }
+
+  return { ok: true, data };
+}
 
 app.http("contact", {
   methods: ["POST", "OPTIONS"],
@@ -66,57 +101,50 @@ app.http("contact", {
         !phone ||
         !serviceType ||
         !recaptchaToken
-      )
-        return {
-          status: 400,
-          body: "Missing required fields: fullName, businessName, email, phone, serviceType and recaptcha are required",
-        };
+      ) {
+        return jsonResponse(
+          400,
+          {
+            success: false,
+            message:
+              "Missing required fields: fullName, businessName, email, phone, serviceType and recaptcha are required",
+          },
+          corsHeaders,
+        );
+      }
       // Note: In production, you should verify reCAPTCHA here as well
 
       // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email))
-        return {
-          status: 400,
-          body: "Invalid email format",
-        };
+      if (!emailRegex.test(email)) {
+        return jsonResponse(
+          400,
+          { success: false, message: "Invalid email format" },
+          corsHeaders,
+        );
+      }
 
       // Check validation errors
       const errors = validationResult(request);
-      if (!errors.isEmpty())
-        return {
-          status: 400,
-          body: "Validation failed",
-        };
-
-      // Verify reCAPTCHA (optional but recommended)
-      if (recaptchaToken) {
-        //     // Verify with Google reCAPTCHA API
-        const response = await fetch(
-          "https://www.google.com/recaptcha/api/siteverify",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: `secret=${secretKey}&response=${recaptchaToken}`,
-          },
+      if (!errors.isEmpty()) {
+        return jsonResponse(
+          400,
+          { success: false, message: "Validation failed" },
+          corsHeaders,
         );
+      }
 
-        const data = await response.json();
-
-        // 3. Check the result
-        if (data.success) {
-          // SUCCESS: Human detected
-          console.log("Captcha passed", data.score); // data.score is for v3
-          return res.json({ success: true, message: "Verification passed" });
-        } else {
-          // FAILURE: Bot or invalid token
-          console.log("Captcha failed", data["error-codes"]);
-          return res.status(400).json({
+      const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+      if (!recaptchaResult.ok) {
+        return jsonResponse(
+          400,
+          {
             success: false,
-            message: "Verification failed",
-            errors: data["error-codes"],
-          });
-        }
+            message: recaptchaResult.message,
+            errors: recaptchaResult.errors,
+          },
+          corsHeaders,
+        );
       }
 
       // Create transporter (configure based on your email provider)
@@ -395,24 +423,26 @@ app.http("contact", {
       //     serviceType,
       //   });
 
-      return {
-        status: 200,
-        body: JSON.stringify({
+      return jsonResponse(
+        200,
+        {
+          success: true,
           message:
             "Form submitted successfully! We will contact you within 24 hours.",
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          ...corsHeaders,
         },
-      };
+        corsHeaders,
+      );
     } catch (error) {
       context.error("Error processing contact form:", error);
-      return {
-        status: 500,
-        body: "Something went wrong. Please try again or contact us directly at service@hillviewgroupinc.com",
-        headers: corsHeaders,
-      };
+      return jsonResponse(
+        500,
+        {
+          success: false,
+          message:
+            "Something went wrong. Please try again or contact us directly at service@hillviewgroupinc.com",
+        },
+        corsHeaders,
+      );
     }
   },
 });
