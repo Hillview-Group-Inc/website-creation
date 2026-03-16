@@ -2,6 +2,7 @@ const { app } = require("@azure/functions");
 const nodemailer = require("nodemailer");
 const { body, validationResult } = require("express-validator");
 const { buildCorsHeaders } = require("./_shared");
+const secretKey = process.env.SECRET_KEY; // "YOUR_SECRET_KEY" Keep this safe!
 
 // Middleware
 // const whitelist = ["https://hvgweb.com"];
@@ -58,10 +59,17 @@ app.http("contact", {
       } = body;
 
       // Validation rules
-      if (!fullName || !businessName || !email || !phone || !serviceType)
+      if (
+        !fullName ||
+        !businessName ||
+        !email ||
+        !phone ||
+        !serviceType ||
+        !recaptchaToken
+      )
         return {
           status: 400,
-          body: "Missing required fields: fullName, businessName, email, phone, and serviceType are required",
+          body: "Missing required fields: fullName, businessName, email, phone, serviceType and recaptcha are required",
         };
       // Note: In production, you should verify reCAPTCHA here as well
 
@@ -82,9 +90,34 @@ app.http("contact", {
         };
 
       // Verify reCAPTCHA (optional but recommended)
-      // if (recaptchaToken) {
-      //     // Verify with Google reCAPTCHA API
-      // }
+      if (recaptchaToken) {
+        //     // Verify with Google reCAPTCHA API
+        const response = await fetch(
+          "https://www.google.com/recaptcha/api/siteverify",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `secret=${secretKey}&response=${recaptchaToken}`,
+          },
+        );
+
+        const data = await response.json();
+
+        // 3. Check the result
+        if (data.success) {
+          // SUCCESS: Human detected
+          console.log("Captcha passed", data.score); // data.score is for v3
+          return res.json({ success: true, message: "Verification passed" });
+        } else {
+          // FAILURE: Bot or invalid token
+          console.log("Captcha failed", data["error-codes"]);
+          return res.status(400).json({
+            success: false,
+            message: "Verification failed",
+            errors: data["error-codes"],
+          });
+        }
+      }
 
       // Create transporter (configure based on your email provider)
       const transporter = nodemailer.createTransport({
