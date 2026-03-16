@@ -1,4 +1,4 @@
-const ALLOWED_ORIGIN = "https://hvgweb.com";
+const ALLOWED_ORIGIN = ["https://hvgweb.com", "https://hvgweb.com/blog"];
 
 const dbConfig = {
   server: process.env.DB_SERVER || "localhost",
