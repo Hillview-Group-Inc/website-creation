@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://hvgweb.com"; //"http://localhost:3000/api";
+const API_BASE_URL = "/api";
 let allArticles = [];
 
 // Category configurations
@@ -36,7 +36,7 @@ window.addEventListener("load", async () => {
 
 async function loadArticles() {
   try {
-    const response = await fetch(`${API_BASE_URL}/blog`);
+    const response = await fetch(`${API_BASE_URL}/getAllArticles`);
     if (response.ok) {
       const data = await response.json();
       allArticles = data.articles;
