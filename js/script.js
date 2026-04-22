@@ -114,23 +114,26 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Desktop dropdown click toggle (Articles / FAQs)
+  function closeAllDropdowns() {
+    document.querySelectorAll(".dropdown-menu").forEach((m) => {
+      m.style.opacity = "";
+      m.style.visibility = "";
+      m.style.pointerEvents = "";
+    });
+  }
+
   document.querySelectorAll(".dropdown > button").forEach((button) => {
     const menu = button.nextElementSibling;
     if (!menu) return;
 
     button.addEventListener("click", function (e) {
       e.stopPropagation();
-      const isOpen = menu.classList.contains("opacity-100");
-
-      // Close all open dropdowns first
-      document.querySelectorAll(".dropdown-menu").forEach((m) => {
-        m.classList.remove("opacity-100", "visible");
-        m.classList.add("opacity-0", "invisible");
-      });
-
+      const isOpen = menu.style.visibility === "visible";
+      closeAllDropdowns();
       if (!isOpen) {
-        menu.classList.remove("opacity-0", "invisible");
-        menu.classList.add("opacity-100", "visible");
+        menu.style.opacity = "1";
+        menu.style.visibility = "visible";
+        menu.style.pointerEvents = "auto";
       }
     });
   });
@@ -138,10 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Close dropdowns when clicking outside
   document.addEventListener("click", function (e) {
     if (!e.target.closest(".dropdown")) {
-      document.querySelectorAll(".dropdown-menu").forEach((m) => {
-        m.classList.remove("opacity-100", "visible");
-        m.classList.add("opacity-0", "invisible");
-      });
+      closeAllDropdowns();
     }
 
     if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
@@ -159,10 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Handle escape key to close dropdowns and mobile menu
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
-      document.querySelectorAll(".dropdown-menu").forEach((m) => {
-        m.classList.remove("opacity-100", "visible");
-        m.classList.add("opacity-0", "invisible");
-      });
+      closeAllDropdowns();
 
       if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
         mobileMenu.classList.add("hidden");
