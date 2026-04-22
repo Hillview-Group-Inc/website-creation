@@ -113,8 +113,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // Close mobile menu when clicking outside
+  // Desktop dropdown click toggle (Articles / FAQs)
+  document.querySelectorAll(".dropdown > button").forEach((button) => {
+    const menu = button.nextElementSibling;
+    if (!menu) return;
+
+    button.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const isOpen = menu.classList.contains("opacity-100");
+
+      // Close all open dropdowns first
+      document.querySelectorAll(".dropdown-menu").forEach((m) => {
+        m.classList.remove("opacity-100", "visible");
+        m.classList.add("opacity-0", "invisible");
+      });
+
+      if (!isOpen) {
+        menu.classList.remove("opacity-0", "invisible");
+        menu.classList.add("opacity-100", "visible");
+      }
+    });
+  });
+
+  // Close dropdowns when clicking outside
   document.addEventListener("click", function (e) {
+    if (!e.target.closest(".dropdown")) {
+      document.querySelectorAll(".dropdown-menu").forEach((m) => {
+        m.classList.remove("opacity-100", "visible");
+        m.classList.add("opacity-0", "invisible");
+      });
+    }
+
     if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
       if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
         mobileMenu.classList.add("hidden");
@@ -127,18 +156,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Handle escape key to close mobile menu
+  // Handle escape key to close dropdowns and mobile menu
   document.addEventListener("keydown", function (e) {
-    if (
-      e.key === "Escape" &&
-      mobileMenu &&
-      !mobileMenu.classList.contains("hidden")
-    ) {
-      mobileMenu.classList.add("hidden");
-      const icon = mobileMenuBtn.querySelector("i");
-      if (icon) {
-        icon.setAttribute("data-lucide", "menu");
-        lucide.createIcons();
+    if (e.key === "Escape") {
+      document.querySelectorAll(".dropdown-menu").forEach((m) => {
+        m.classList.remove("opacity-100", "visible");
+        m.classList.add("opacity-0", "invisible");
+      });
+
+      if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.add("hidden");
+        const icon = mobileMenuBtn.querySelector("i");
+        if (icon) {
+          icon.setAttribute("data-lucide", "menu");
+          lucide.createIcons();
+        }
       }
     }
   });
